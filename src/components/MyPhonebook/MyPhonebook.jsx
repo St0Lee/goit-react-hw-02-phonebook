@@ -18,7 +18,7 @@ class MyPhonebook extends Component {
         const dublicate = contacts.find(item => {
             const normalizedCurrentName = item.name.toLowerCase();
             const normalizedCurrentNumber = item.number.toLowerCase();
-            return (normalizedCurrentName === normalizedName && normalizedCurrentNumber === normalizedNumber);
+            return (normalizedCurrentName === normalizedName || normalizedCurrentNumber === normalizedNumber);
         })
 
         return Boolean(dublicate);
@@ -26,7 +26,7 @@ class MyPhonebook extends Component {
 
     addContact = (data) => {
         if(this.isDublicate(data)) {
-            return alert(`You've already added ${data.name} with a number ${data.number} to your phonebook.`)
+            return alert(`You've already added ${data.name} or a number ${data.number} to your phonebook.`)
          }
 
         this.setState(({contacts}) => {
